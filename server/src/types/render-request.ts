@@ -1,0 +1,3 @@
+interface RenderRequest {
+    text:string
+}

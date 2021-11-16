@@ -1,0 +1,24 @@
+@startuml
+
+autonumber
+
+User -> Angular
+activate Angular
+Angular -> Server
+activate Server
+Server -> MinIO
+activate MinIO
+Server <- MinIO
+deactivate MinIO
+
+Server -> RenderServer
+activate RenderServer
+Server <- RenderServer
+deactivate RenderServer
+
+Angular <- Server
+deactivate Server
+User <- Angular
+deactivate Angular
+
+@enduml

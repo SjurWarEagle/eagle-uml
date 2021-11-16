@@ -1,0 +1,15 @@
+FROM ubuntu:22.04
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y --no-install-recommends --no-install-suggests \
+    openjdk-17-jre \
+    ca-certificates \
+    mc \
+    wget \
+    curl \
+    emacs
+RUN mkdir -p /project
+RUN chmod 777 /project
+WORKDIR /project
+RUN wget http://sourceforge.net/projects/plantuml/files/plantuml.1.2021.14.jar/download -O plantuml.jar
+ENTRYPOINT ["java","-jar","plantuml.jar","-picoweb:7450"]

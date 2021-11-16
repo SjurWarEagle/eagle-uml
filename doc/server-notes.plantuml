@@ -1,0 +1,15 @@
+@startuml
+
+autonumber
+
+User -> Server :renderText
+activate Server
+Server -> RenderServer :sendText
+activate RenderServer
+
+Server <-- RenderServer
+deactivate RenderServer
+User <-- Server :image
+
+
+@enduml

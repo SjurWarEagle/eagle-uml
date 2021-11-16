@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  picoweb:
+    build:
+      context: .
+      dockerfile: Dockerfile-Server
+    ports:
+      - "7450:7450"
+    restart: unless-stopped
