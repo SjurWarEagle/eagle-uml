@@ -1,22 +1,34 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {AppComponent} from './app.component';
-import {IMqttServiceOptions, MqttModule} from 'ngx-mqtt';
-import {environment} from '../environments/environment';
-
-export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: environment.mqttServer,
-  port: environment.mqttPort,
-  protocol: 'ws',
-  path: '/mqtt',
-};
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { PlantUmlRendererDisplayComponent } from './component/plant-uml-renderer-display/plant-uml-renderer-display.component';
+import { EditorComponent } from './component/editor/editor.component';
+import { MainViewComponent } from './component/main-view/main-view.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatInputModule} from "@angular/material/input";
+import {TextFieldModule} from "@angular/cdk/text-field";
+import {FormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, MqttModule.forRoot(MQTT_SERVICE_OPTIONS)],
+  declarations: [
+    AppComponent,
+    PlantUmlRendererDisplayComponent,
+    EditorComponent,
+    MainViewComponent
+  ],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatInputModule,
+    TextFieldModule,
+    AppRoutingModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

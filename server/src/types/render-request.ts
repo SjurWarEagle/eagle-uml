@@ -1,3 +1,3 @@
 interface RenderRequest {
-    text:string
+  text: string;
 }

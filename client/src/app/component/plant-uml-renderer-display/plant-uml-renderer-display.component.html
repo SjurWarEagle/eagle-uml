@@ -1,0 +1,9 @@
+<div class="error"
+*ngIf="rendererService.lastError.value!=''"
+>
+  {{rendererService.lastError.value}}
+</div>
+
+<div class="output">
+  <img src="data:image/png;base64,{{imageBase64}}" alt="rendered PlantUml Image"/>
+</div>

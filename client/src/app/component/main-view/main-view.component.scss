@@ -1,0 +1,17 @@
+.main {
+  display: grid;
+  height: 95%;
+  width: 95%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+  grid-template-areas:
+  "editor renderer"
+;
+}
+
+.editor {
+  grid-area: editor;
+}
+.renderer {
+  grid-area: renderer;
+}
