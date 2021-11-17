@@ -16,13 +16,24 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and push PicoWeb
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: wareagledocker/plamntuml:latest
-          file: docker/Dockerfile
+          tags: wareagledocker/picoweb:latest
+          file: docker/Dockerfile-PicoWeb
+      -
+        name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+      -
+        name: Build and push PlantUmlServer
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: wareagledocker/plantUmlServer:latest
+          file: docker/Dockerfile-PlantUmlServer
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

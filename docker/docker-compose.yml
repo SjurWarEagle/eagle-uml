@@ -4,7 +4,15 @@ services:
   picoweb:
     build:
       context: .
-      dockerfile: Dockerfile-Server
+      dockerfile: Dockerfile-PicoWeb
+    ports:
+      - "7450:7450"
+    restart: unless-stopped
+
+  plantUmlServer:
+    build:
+      context: server
+      dockerfile: Dockerfile-PlantUmlServer
     ports:
       - "7450:7450"
     restart: unless-stopped
