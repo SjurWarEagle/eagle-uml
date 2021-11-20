@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  plantUmlServer:'http://localhost:4100/',
-  fileServer:'http://localhost:4000/'
+  plantUmlServer:'/apiPlantUml/',
+  fileServer:'/apiEagleIO/'
 };
 
 /*

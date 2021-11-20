@@ -1,0 +1,16 @@
+{
+  "/apiEagleIO": {
+    "target": "http://localhost:4000/",
+    "secure": false,
+    "pathRewrite": {
+      "^/apiEagleIO": ""
+    }
+  },
+  "/apiPlantUml": {
+    "target": "http://localhost:4100/",
+    "secure": false,
+    "pathRewrite": {
+      "^/apiPlantUml": ""
+    }
+  }
+}

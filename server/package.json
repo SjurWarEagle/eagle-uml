@@ -6,7 +6,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "docker:build": "docker-compose -f ../docker/docker-compose.yml build picoweb",
+    "docker:build:picoweb": "docker-compose -f ../docker/docker-compose.yml build picoweb",
+    "docker:build:plant-uml-server": "docker-compose -f ../docker/docker-compose.yml build plant-uml-server",
     "docker:up": "docker-compose -f ../docker/docker-compose.yml up -d picoweb",
     "docker:down": "docker-compose -f ../docker/docker-compose.yml down picoweb",
     "docker:logs:follow": "docker-compose -f ../docker/docker-compose.yml logs -f picoweb",

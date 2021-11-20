@@ -11,8 +11,9 @@ services:
 
   plant-uml-server:
     build:
-      context: ../server
-      dockerfile: Dockerfile-PlantUmlServer
+      context: ..
+      dockerfile: docker/Dockerfile-PlantUmlServer
     ports:
       - "7450:7450"
+      - "101:80"
     restart: unless-stopped
