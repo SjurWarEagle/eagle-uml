@@ -33,7 +33,7 @@ jobs:
         with:
           push: true
           tags: wareagledocker/plant-uml-server:latest
-          file: docker/Dockerfile-PlantUmlServer
+          file: docker/Dockerfile-PlantUml
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

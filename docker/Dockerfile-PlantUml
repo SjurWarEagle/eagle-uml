@@ -1,4 +1,4 @@
-FROM node:14.17.6
+FROM node:16.13.0
 #from ubuntu:21:10
 RUN apt update -y && \
     apt install -y --no-install-recommends --no-install-suggests \

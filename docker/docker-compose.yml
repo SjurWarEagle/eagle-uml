@@ -5,15 +5,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-PicoWeb
-    ports:
-      - "7450:7450"
+    #ports:
+    #  - "7450:7450"
     restart: unless-stopped
 
   plant-uml-server:
     build:
       context: ..
-      dockerfile: docker/Dockerfile-PlantUmlServer
+      dockerfile: docker/Dockerfile-PlantUml
     ports:
-      - "7450:7450"
-      - "101:80"
+      #- "7450:7450"
+      - "10100:10100"
+    environment:
+      - SERVER_PORT=4100
+      - PLANTUML_SERVER_URL=http://picoweb:7450
     restart: unless-stopped
