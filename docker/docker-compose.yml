@@ -9,9 +9,9 @@ services:
       - "7450:7450"
     restart: unless-stopped
 
-  plantUmlServer:
+  plant-uml-server:
     build:
-      context: server
+      context: ../server
       dockerfile: Dockerfile-PlantUmlServer
     ports:
       - "7450:7450"

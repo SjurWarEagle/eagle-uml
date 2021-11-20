@@ -1,22 +1,35 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {RendererService} from "../../service/renderer.service";
+import {DataHolderService} from "../../service/data-holder.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
-export class EditorComponent implements OnInit {
-  public text: string = "@startuml\n\n@enduml";
+export class EditorComponent implements OnInit, OnDestroy {
+  public text: string = "";
+  private textSubscription: Subscription | undefined;
 
-  constructor(private rendererService: RendererService) {
+  constructor(public dataHolderService: DataHolderService) {
   }
 
-  public ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
+    this.textSubscription = this.dataHolderService.plantUmlText.subscribe(text => {
+      this.text = text;
+    })
+    await this.updateImage();
   }
 
   public async updateImage(): Promise<void> {
-    await this.rendererService.renderText(this.text);
+    this.dataHolderService.plantUmlText.next(this.text);
+  }
+
+  ngOnDestroy(): void {
+    if (this.textSubscription) {
+      this.textSubscription.unsubscribe();
+    }
   }
 
 }

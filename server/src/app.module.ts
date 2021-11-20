@@ -4,7 +4,11 @@ import { RenderService } from './render.service';
 
 @Module({
   imports: [],
-  controllers: [AppController],
-  providers: [RenderService],
+  controllers: [
+      AppController,
+
+  ],
+  providers: [
+      RenderService],
 })
 export class AppModule {}

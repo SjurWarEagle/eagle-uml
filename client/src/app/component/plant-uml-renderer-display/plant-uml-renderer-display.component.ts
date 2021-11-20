@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataHolderService} from "../../service/data-holder.service";
 import {RendererService} from "../../service/renderer.service";
 
 @Component({
@@ -7,12 +8,15 @@ import {RendererService} from "../../service/renderer.service";
   styleUrls: ['./plant-uml-renderer-display.component.scss']
 })
 export class PlantUmlRendererDisplayComponent implements OnInit {
-  public imageBase64: string="";
+  public imageBase64: string = "";
 
-  constructor(public rendererService:RendererService) { }
+  constructor(public dataHolderService: DataHolderService,
+              public rendererService: RendererService) {
+    // public rendererService: RendererService is needed so that it is loaded and the subscription is triggered
+  }
 
   ngOnInit(): void {
-    this.rendererService.lastRenderedImageBase64.subscribe(image => {
+    this.dataHolderService.lastRenderedImageBase64.subscribe(image => {
       this.imageBase64 = image;
     })
   }

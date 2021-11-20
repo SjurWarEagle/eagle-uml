@@ -10,8 +10,8 @@ export class AppController {
     if (!body) {
       return undefined;
     }
-    console.log('body', body);
-    console.log('body', body.text);
+    // console.log('body', body);
+    // console.log('body', body.text);
 
     return await this.renderService.render(body.text);
   }

@@ -3,8 +3,9 @@
   height: 95%;
   width: 95%;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100%;
+  grid-template-rows: min-content 1fr;
   grid-template-areas:
+  "file file"
   "editor renderer"
 ;
 }
@@ -14,4 +15,7 @@
 }
 .renderer {
   grid-area: renderer;
+}
+.file {
+  grid-area: file;
 }

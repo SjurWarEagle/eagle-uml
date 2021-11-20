@@ -1,0 +1,14 @@
+.all {
+  display: grid;
+  grid-template-areas:
+  "file actions"
+;
+}
+
+.actions{
+  grid-area: actions;
+}
+
+.file{
+  grid-area: file;
+}

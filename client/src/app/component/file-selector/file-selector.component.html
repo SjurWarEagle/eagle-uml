@@ -1,0 +1,20 @@
+<div class="all">
+  <div class="file">
+    Filename: <input matInput type="text" [(ngModel)]="selectedFile">
+  </div>
+  <div class="actions">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Existing Files</mat-label>
+      <mat-select [formControl]="files"
+                  (selectionChange)="selectFile($event)"
+      >
+        <mat-option *ngFor="let file of availableFiles" [value]="file">{{file}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <button mat-button name="Load" (click)="load()">Load</button>
+    <button mat-button name="Save" (click)="save()">Save</button>
+  </div>
+</div>
