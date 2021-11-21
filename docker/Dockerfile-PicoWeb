@@ -8,7 +8,9 @@ RUN apt update && \
     wget \
     curl \
     graphviz \
-    emacs
+    emacs \
+    rm -rf /var/cache/apt/ &&\
+    rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /project
 RUN chmod 777 /project
 WORKDIR /project
