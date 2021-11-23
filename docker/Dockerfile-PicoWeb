@@ -9,8 +9,7 @@ RUN apt update && \
         curl \
         graphviz \
         emacs \
-    rm -r /var/cache/apt &&\
-    rm -r /var/lib/apt/lists
+    rm -rf /var/cache/apt
 RUN mkdir -p /project
 RUN chmod 777 /project
 WORKDIR /project
