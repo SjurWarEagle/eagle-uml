@@ -13,9 +13,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import { FileSelectorComponent } from './component/file-selector/file-selector.component';
 import {MatButtonModule} from "@angular/material/button";
-import {MatListModule} from "@angular/material/list";
 import {MatSelectModule} from "@angular/material/select";
-import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-field";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ACE_CONFIG, AceConfigInterface, AceModule} from "ngx-ace-wrapper";
+
+const DEFAULT_ACE_CONFIG: AceConfigInterface = {
+};
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-fi
     FileSelectorComponent
   ],
   imports: [
+    AceModule,
     BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
@@ -38,7 +42,12 @@ import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-fi
     MatButtonModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ACE_CONFIG,
+      useValue: DEFAULT_ACE_CONFIG
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

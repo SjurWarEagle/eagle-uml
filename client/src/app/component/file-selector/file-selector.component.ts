@@ -33,6 +33,7 @@ export class FileSelectorComponent implements OnInit {
 
   public async save(): Promise<void> {
     await this.fileService.save(this.selectedFile, this.dataHolderService.plantUmlText.value);
+    this.availableFiles = await this.fileService.getAllFiles();
   }
 
 }

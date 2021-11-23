@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {RendererService} from "../../service/renderer.service";
 import {DataHolderService} from "../../service/data-holder.service";
 import {Subscription} from "rxjs";
+import {AceConfigInterface} from "ngx-ace-wrapper/lib/ace.interfaces";
 
 @Component({
   selector: 'app-editor',
@@ -11,6 +11,13 @@ import {Subscription} from "rxjs";
 export class EditorComponent implements OnInit, OnDestroy {
   public text: string = "";
   private textSubscription: Subscription | undefined;
+  public config: AceConfigInterface = {
+    autoScrollEditorIntoView: true,
+    showInvisibles: true,
+    fontSize: 16,
+    highlightActiveLine: true,
+
+  };
 
   constructor(public dataHolderService: DataHolderService) {
   }

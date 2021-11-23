@@ -18,18 +18,15 @@ export class FileService {
   }
 
   public async loadFile(fileName: string): Promise<void> {
-    // console.log('loadFile', fileName);
     const rc = await axios.get(environment.fileServer + 'io/v1/files/read?bucket=plantuml&file=' + fileName)
     this.dataHolderService.plantUmlText.next(rc.data);
-//    console.log('rc', rc);
   }
 
-  public async save(fileName: string, content: string) {
+  public async save(fileName: string, content: string): Promise<void> {
     const data: WriteFileRequest = new WriteFileRequest();
     data.bucket = 'plantuml';
     data.fileName = fileName;
     data.content = content;
-    const rc = await axios.post(environment.fileServer + 'io/v1/files/write', data)
-//    console.log('rc', rc);
+    await axios.post(environment.fileServer + 'io/v1/files/write', data)
   }
 }
