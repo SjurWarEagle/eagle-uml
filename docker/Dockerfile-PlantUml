@@ -1,11 +1,11 @@
 FROM node:16.13.0
-#from ubuntu:21:10
+
 RUN apt update -y && \
     apt install -y --no-install-recommends --no-install-suggests \
-    nginx \
-    ca-certificates &&\
+        nginx \
+        ca-certificates &&\
     rm -rf /var/cache/apt/ &&\
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/
 RUN mkdir -p /project
 COPY . /project
 WORKDIR /project
