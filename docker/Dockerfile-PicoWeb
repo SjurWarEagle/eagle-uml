@@ -8,8 +8,8 @@ RUN apt update && \
         wget \
         curl \
         graphviz \
-        emacs \
-    rm -rf /var/cache/apt
+        emacs && \
+    rm --recursive /var/cache/apt/
 RUN mkdir -p /project
 RUN chmod 777 /project
 WORKDIR /project
