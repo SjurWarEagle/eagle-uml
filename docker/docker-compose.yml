@@ -14,7 +14,7 @@ services:
       context: ..
       dockerfile: docker/Dockerfile-EagleUml
     ports:
-      - "10100:10100"
+      - "95:95"
     environment:
       - SERVER_PORT=4100
       - PLANTUML_SERVER_URL=http://localhost:7450
