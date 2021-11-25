@@ -9,10 +9,10 @@ services:
       - "7450:7450"
     restart: unless-stopped
 
-  plant-uml-server:
+  eagle-uml:
     build:
       context: ..
-      dockerfile: docker/Dockerfile-PlantUml
+      dockerfile: docker/Dockerfile-EagleUml
     ports:
       - "10100:10100"
     environment:
