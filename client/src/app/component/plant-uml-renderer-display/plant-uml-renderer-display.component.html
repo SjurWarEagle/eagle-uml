@@ -5,5 +5,7 @@
 </div>
 
 <div class="output">
-  <img src="data:image/png;base64,{{imageBase64}}" alt="rendered PlantUml Image"/>
+  <img
+    *ngIf="imageBase64"
+    src="data:image/png;base64,{{imageBase64}}" alt="rendered PlantUml Image"/>
 </div>

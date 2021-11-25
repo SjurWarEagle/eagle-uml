@@ -9,30 +9,40 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./file-selector.component.scss']
 })
 export class FileSelectorComponent implements OnInit {
-  public selectedFile: string = 'demo.plantuml'
+  public selectedFile: string = '';
   public availableFiles: string [] = [];
   public files = new FormControl();
 
-  constructor(private dataHolderService: DataHolderService,
+  constructor(public dataHolderService: DataHolderService,
               private fileService: FileService
   ) {
   }
 
-  public async ngOnInit(): Promise<void> {
-    this.availableFiles = await this.fileService.getAllFiles();
+  public async updateFilename(file: string): Promise<void> {
+    this.dataHolderService.selectedFile.next(file);
+  }
+
+  public ngOnInit(): void {
+    this.fileService.getAllFiles().then(rc => {
+      this.availableFiles = rc;
+    })
+    this.selectedFile = this.dataHolderService.selectedFile.value;
+    this.dataHolderService.selectedFile.subscribe((file) => {
+      this.selectedFile = file;
+    })
   }
 
   public async load(): Promise<void> {
-    await this.fileService.loadFile(this.selectedFile);
+    await this.fileService.loadFile(this.dataHolderService.selectedFile.value);
   }
 
-  public async selectFile(event:any): Promise<void> {
-    this.selectedFile = event.value;
+  public async selectFile(event: any): Promise<void> {
+    this.dataHolderService.selectedFile.next(event.value);
     await this.load();
   }
 
   public async save(): Promise<void> {
-    await this.fileService.save(this.selectedFile, this.dataHolderService.plantUmlText.value);
+    await this.fileService.save(this.dataHolderService.selectedFile.value, this.dataHolderService.plantUmlText.value);
     this.availableFiles = await this.fileService.getAllFiles();
   }
 

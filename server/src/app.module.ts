@@ -9,6 +9,7 @@ import { RenderService } from './render.service';
 
   ],
   providers: [
-      RenderService],
+      RenderService
+  ],
 })
 export class AppModule {}

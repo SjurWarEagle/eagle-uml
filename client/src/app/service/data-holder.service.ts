@@ -10,6 +10,7 @@ export class DataHolderService {
   public lastRenderedImageBase64: BehaviorSubject<string> = new BehaviorSubject<string>("");
   public lastError: BehaviorSubject<string> = new BehaviorSubject<string>("");
   public plantUmlText: BehaviorSubject<string> = new BehaviorSubject<string>("@startuml\n\n  A->B\n  B->C\n  A<--C\n\n@enduml");
+  public selectedFile: BehaviorSubject<string> = new BehaviorSubject<string>('demo.plantuml');
 
   constructor() {
   }

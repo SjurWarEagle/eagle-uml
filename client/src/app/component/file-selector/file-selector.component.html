@@ -1,6 +1,6 @@
 <div class="all">
   <div class="file">
-    Filename: <input matInput type="text" [(ngModel)]="selectedFile">
+    Filename: <input matInput type="text" [(ngModel)]="selectedFile" (ngModelChange)="updateFilename($event)">
   </div>
   <div class="actions">
 
